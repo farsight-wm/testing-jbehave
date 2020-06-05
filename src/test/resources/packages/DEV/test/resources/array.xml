@@ -1,0 +1,48 @@
+?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <array name="arrayOfRecords" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="BESTAND">1</value>
+        <Date name="LAST_UPD_DATE" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+        <value name="LAGERTYP">ATP</value>
+        <value name="MATNR">000000000010012057</value>
+        <value name="CHARGE">DOT-0020</value>
+        <value name="WERK">2033</value>
+        <value name="MEINH">ST</value>
+        <Date name="TOUCH_TS" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="BESTAND">1</value>
+        <Date name="LAST_UPD_DATE" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+        <value name="LAGERTYP">ATP</value>
+        <value name="MATNR">000000000010012057</value>
+        <value name="CHARGE">DOT-0020</value>
+        <value name="WERK">2033</value>
+        <value name="MEINH">ST</value>
+        <Date name="TOUCH_TS" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="BESTAND">1</value>
+        <Date name="LAST_UPD_DATE" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+        <value name="LAGERTYP">ATP</value>
+        <value name="MATNR">000000000010012057</value>
+        <value name="CHARGE">DOT-0020</value>
+        <value name="WERK">2033</value>
+        <value name="MEINH">ST</value>
+        <Date name="TOUCH_TS" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="BESTAND">1</value>
+        <Date name="LAST_UPD_DATE" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+        <value name="LAGERTYP">ATP</value>
+        <value name="MATNR">000000000010012057</value>
+        <value name="CHARGE">DOT-0020</value>
+        <value name="WERK">2033</value>
+        <value name="MEINH">ST</value>
+        <Date name="TOUCH_TS" type="java.util.Date">Mon Feb 03 09:22:57 CET 2020</Date>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>
