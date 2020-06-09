@@ -1,5 +1,7 @@
 package farsight.testing.jbehave.steps;
 
+import static org.junit.Assert.fail;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,14 +13,16 @@ import org.junit.Assert;
 
 import com.wm.data.IData;
 
+import farsight.testing.jbehave.ExecutionContext;
 import farsight.testing.jbehave.Scope;
 import farsight.testing.jbehave.TestExecutor;
 import farsight.testing.jbehave.jbehave.InterceptPoint;
 import farsight.testing.jbehave.jexl.Jexl;
-import farsight.testing.jbehave.jexl.WmAssert;
 import farsight.testing.jbehave.jexl.Jexl.ScriptEnv;
+import farsight.testing.jbehave.jexl.WmAssert;
 import farsight.testing.jbehave.steps.wmaop.MockServiceStep;
 import farsight.testing.jbehave.steps.wmaop.PipelineCaptureStep;
+import farsight.utils.idata.DataBuilder;
 
 public class WmBehaveStepTypes extends AbstractWmStepTypes {
 	
@@ -316,6 +320,44 @@ public class WmBehaveStepTypes extends AbstractWmStepTypes {
 				} else throw e;
 			}
 		}
+	}
+	
+	// --- THEN: document -----------------------------------------------------
+	
+	@Then("document $document is valid doctype $doctype")
+	public void document_is_valid_doctype(String document, String doctype) {
+		executor().withStep(new WmStep() {
+			public void execute(ExecutionContext ctx) throws Exception {
+				
+				//get document from pipeline
+				IData data = pipelineDocument(document);
+				
+				//invoke pub.schema:validate
+				DataBuilder result = DataBuilder.wrap(
+						ctx.invokeService("pub.schema:validate", DataBuilder.create()
+							.put("object", data)
+							.put("maxErrors", "100")
+							.put("conformsTo", doctype)
+							.put("failIfInvalid", "false")
+							.build()));
+				
+				//check result
+				if(!"true".equals(result.get("isValid"))) {
+					//document is invalid
+					StringBuilder output = new StringBuilder("Document " + document + " is invalid! Errors:\n");
+					IData[] errors = result.get("errors", IData[].class);
+					if(errors != null) for(DataBuilder error: walk(errors)) {
+						output.append(String.format("%s - %s%n", error.get("pathName"),error.get("errorMessage")));
+					} else {
+						output.append("no errors returned!\n");
+					} 
+					
+					// print errors to console and fail step 
+					System.out.println(output);
+					fail(output.toString());
+				}
+			}
+		});
 	}
 	
 	// --- THEN: pipeline -----------------------------------------------------
