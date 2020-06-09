@@ -3,23 +3,32 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>testing-jbehave</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
 	<parent>
 		<groupId>farsight-wm</groupId>
 		<artifactId>parent</artifactId>
 		<version>10.5.0</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
+	<artifactId>testing-jbehave</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>farsight-wm-testing-jbehave</name>
-
-	<description>
-		Modified Version from the upstream project https://github.com/wmaop/wm-jbehave/
-	</description>
-
+	<description>jbehave based testing of webMethod IntegrationServer assets (based upon: upstream project from https://github.com/wmaop/)</description>
+	<url>https://github.com/farsight-wm/testing-jbehave</url>
+	
+	<issueManagement>
+		<url>https://github.com/farsight-wm/parent/testing-jbehave</url>
+		<system>GitHub.com</system>
+	</issueManagement>
+	
+	<scm>
+		<url>https://github.com/farsight-wm/testing-jbehave</url>
+		<connection>scm:git:https://github.com/farsight-wm/testing-jbehave.git</connection>
+		<developerConnection>scm:git:https://github.com/farsight-wm/testing-jbehave.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
 	<licenses>
 		<license>
 			<name>The MIT License (MIT)</name>
@@ -43,21 +52,16 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<wm-aop-util.version>2.1.0-SNAPSHOT</wm-aop-util.version>
-		<jbehave-runner.version>2.3.0</jbehave-runner.version>
-		<jbehave.version>4.5</jbehave.version>
-
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>farsight-wm</groupId>
 			<artifactId>utils</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>farsight-wm</groupId>
 			<artifactId>testing-utils</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.softwareag.webmethods</groupId>
@@ -96,12 +100,12 @@
 		<dependency>
 			<groupId>org.jbehave</groupId>
 			<artifactId>jbehave-core</artifactId>
-			<version>${jbehave.version}</version>
+			<version>4.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jbehave</groupId>
 			<artifactId>jbehave-maven-plugin</artifactId>
-			<version>${jbehave.version}</version>
+			<version>4.5</version>
 			<scope>compile</scope>
 		</dependency>
 
